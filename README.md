@@ -77,3 +77,17 @@ To avoid unexpected usages and dependencies, hide as much as possible, and only 
     window.myModule = myModule;
 }(window));
 ```
+### 4. Clear defaults
+```javascript
+var myModule = {},
+    defaultOptions = {
+        'limit': 10
+    },
+    settings = defaultOptions
+    
+    [ ... ]
+    
+    myModule.set = function (options) {
+        settings = options;
+    }
+```
