@@ -6,9 +6,6 @@
     function incrementCallCount() { // can't be called from outside
         callCount = callCount + 1;
     }
-    myModule.getCallCount = function () {
-        return callCount;
-    };
     myModule.echo = function (input) {
         incrementCallCount();
         return input;
