@@ -4,6 +4,7 @@ Inspired by Pamela Fox's talk called Beyond jQuery Widgets: JS UI Library Design
 Wrap the library in a Immediately-Invoked Function Expression (IIFE).
 ```javascript
 (function (window) {
+    'use strict';
     // ... all vars and functions are in this scope only
     // still maintains access to all globals
     var myModule = {};
