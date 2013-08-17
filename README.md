@@ -91,3 +91,25 @@ var myModule = {},
         settings = options;
     }
 ```
+### 5. Observable - allow for listening to events
+```javascript
+myModule.on = function (type, listener) {
+    if (typeof eventListeners[type] === 'undefined') {
+        eventListeners[type] = [];
+    }
+    eventListeners[type].push(listener);
+};
+myModule.fire = function (eventName) {
+    var i, len, listeners;
+    event = { 'type': eventName };
+    if (!event.target) {
+        event.target = this;
+    }
+    if (eventListeners[event.type] instanceof Array) {
+        listeners = eventListeners[event.type];
+        for (i = 0, len = listeners.length; i < len; i += 1) {
+            listeners[i].call(this, event);
+        }
+    }
+};
+```
