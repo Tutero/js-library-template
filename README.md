@@ -113,3 +113,13 @@ myModule.fire = function (eventName) {
     }
 };
 ```
+### 6. AMD compatible
+```javascript
+if (typeof define === 'function' && define.amd) {
+    define([], function () {
+        return myModule;
+    });
+} else if (typeof window !== 'undefined' && typeof ender === 'undefined') {
+    window.myModule = myModule;
+}
+```
