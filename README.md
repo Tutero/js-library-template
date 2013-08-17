@@ -2,3 +2,5 @@ Inspired by Pamela Fox's talk called Beyond jQuery Widgets: JS UI Library Design
 
 ### 1. Avoid the global namespace
 Wrap the library in a Immediately-Invoked Function Expression (IIFE).
+
+### 2. Make private things that are only used internally
