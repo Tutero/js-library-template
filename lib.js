@@ -1,5 +1,5 @@
-/*global window: false*/
-(function (window, event) {
+/*global window: false, define: false, ender: false*/
+(function (window, event, define, ender) {
     'use strict';
     var myModule = {},
         defaultOptions = {
@@ -44,5 +44,11 @@
             return input;
         }
     };
-    window.myModule = myModule;
-}(window, window.event));
+    if (typeof define === 'function' && define.amd) {
+        define([], function () {
+            return myModule;
+        });
+    } else if (typeof window !== 'undefined' && typeof ender === 'undefined') {
+        window.myModule = myModule;
+    }
+}(window, window.event, define, ender));
