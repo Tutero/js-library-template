@@ -8,7 +8,24 @@ Wrap the library in a Immediately-Invoked Function Expression (IIFE).
     // ... all vars and functions are in this scope only
     // still maintains access to all globals
     var myModule = {};
+    // any functions or properties on the myModule object will become the public
+    // interface..
     myModule.echo = function (input) {
+        return input;
+    };
+    window.myModule = myModule; // ..since it is what's exported from this IIFE
+}(window));
+```
+#### Constructor version
+In case the library is used to instantiate multiple objects, the public
+interface will look like this instead:
+```javascript
+(function (window) {
+    'use strict';
+    var myModule = function (params) {
+        this.name = params.name;    
+    };
+    myModule.prototype.echo = function (input) {
         return input;
     };
     window.myModule = myModule;
