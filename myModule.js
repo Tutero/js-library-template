@@ -1,5 +1,5 @@
 /*global window: false, define: false, ender: false*/
-(function (window, event, define, ender) {
+(function (window, event) {
     'use strict';
     var myModule = {},
         defaultOptions = {
@@ -51,4 +51,4 @@
     } else if (typeof window !== 'undefined' && typeof ender === 'undefined') {
         window.myModule = myModule;
     }
-}(window, window.event, define, ender));
+}(window, window.event));
