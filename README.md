@@ -113,3 +113,21 @@ myModule.fire = function (eventName) {
     }
 };
 ```
+### 6. AMD compatible
+```javascript
+if (typeof define === 'function' && define.amd) {
+    define([], function () {
+        return myModule;
+    });
+} else if (typeof window !== 'undefined' && typeof ender === 'undefined') {
+    window.myModule = myModule;
+}
+```
+### 7. Declared dependencies
+Explicitly declared and imported, as well as ignored by JSLint (the global comment). TODO: throw exception if any of the dependencies seems to be missing..
+```javascript
+/*global window: false, define: false, ender: false*/                         
+(function (window, event, define, ender) {
+[ ... ]
+}(window, window.event, define, ender));
+```
