@@ -1,3 +1,19 @@
+/* myModule
+
+Why does this library exist?
+==============================
+To quickly get started when facing the task of writing a front end JavaScript
+library. Also, a place to collect and exemplify best practices for libraries.
+
+How do you use this library?
+==============================
+Clone the project, use it as a starting point for your library.
+
+Future work
+==============================
+Extend to node.js as well as browser, currently browser only.
+
+*/
 /*global window: false, define: false, ender: false*/
 (function (window, event) {
     'use strict';
