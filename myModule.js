@@ -26,17 +26,13 @@ Future work
         },
         settings = defaultOptions,
         eventListeners = {},
-        callCount = 0;
-    function incrementCallCount() {
+        callCount = 0,
+        incrementCallCount,
+        fire;
+    incrementCallCount = function () {
         callCount = callCount + 1;
-    }
-    myModule.on = function (type, listener) {
-        if (typeof eventListeners[type] === 'undefined') {
-            eventListeners[type] = [];
-        }
-        eventListeners[type].push(listener);
     };
-    myModule.fire = function (eventName) {
+    fire = function (eventName) {
         var i, len, listeners;
         event = { 'type': eventName };
         if (!event.target) {
@@ -49,6 +45,12 @@ Future work
             }
         }
     };
+    myModule.on = function (type, listener) {
+        if (typeof eventListeners[type] === 'undefined') {
+            eventListeners[type] = [];
+        }
+        eventListeners[type].push(listener);
+    };
     myModule.set = function (options) {
         settings = options;
     };
@@ -57,7 +59,7 @@ Future work
     };
     myModule.echo = function (input) {
         if (settings.limit <= callCount) {
-            this.fire('limit');
+            fire('limit');
         } else {
             incrementCallCount();
             return input;
