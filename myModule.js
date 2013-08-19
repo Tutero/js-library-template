@@ -11,7 +11,10 @@ Clone the project, use it as a starting point for your library.
 
 Future work
 ==============================
-Extend to node.js as well as browser, currently browser only.
+* Extend to node.js as well as browser, currently browser only.
+* Does the whole module need to be wrapped in an object, to be able to have a
+  convenient 'this' scope? Does calling functions in the "global" scope cause
+  problems? (this will be undefined in strict mode..)
 
 */
 /*global window: false, define: false, ender: false*/
