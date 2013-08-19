@@ -1,0 +1,6 @@
+{
+    "dependencies": {
+        "chai": "1.7.2"
+    },
+    "engine": "node >= 0.8.0"
+}

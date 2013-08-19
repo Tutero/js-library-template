@@ -18,10 +18,9 @@ Future work
 
 */
 /*global window: false, define: false, ender: false*/
-(function (window, event) {
+(function (exports, event) {
     'use strict';
-    var myModule = {},
-        defaultOptions = {
+    var defaultOptions = {
             'limit': 10
         },
         settings = defaultOptions,
@@ -45,19 +44,19 @@ Future work
             }
         }
     };
-    myModule.on = function (type, listener) {
+    exports.on = function (type, listener) {
         if (typeof eventListeners[type] === 'undefined') {
             eventListeners[type] = [];
         }
         eventListeners[type].push(listener);
     };
-    myModule.set = function (options) {
+    exports.set = function (options) {
         settings = options;
     };
-    myModule.getStatistics = function () {
+    exports.getStatistics = function () {
         return 'Number of calls to echo method: ' + callCount;
     };
-    myModule.echo = function (input) {
+    exports.echo = function (input) {
         if (settings.limit <= callCount) {
             fire('limit');
         } else {
@@ -69,7 +68,8 @@ Future work
         define([], function () {
             return myModule;
         });
-    } else if (typeof window !== 'undefined' && typeof ender === 'undefined') {
-        window.myModule = myModule;
     }
-}(window, window.event));
+}(
+    (typeof exports === 'undefined' ? this['myModule'] = {} : exports),
+    (typeof event === 'undefined' ? 'undefined' : event)
+));
