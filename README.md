@@ -1,3 +1,6 @@
+==> NOTE: This is only halfway done, got stuck on the part for being observable.
+Could not figure out how to make that work both in node.js and browser...
+
 Inspired by Pamela Fox's talk called Beyond jQuery Widgets: JS UI Library Design, at BackboneConf 2013. Video of the talk can be found here: http://www.youtube.com/watch?v=Qkm5h4032ko, and the slides here: http://slid.es/pamelafox/js-ui-library-design/
 
 ### 1. Avoid the global namespace
